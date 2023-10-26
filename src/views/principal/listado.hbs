@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Registro</title>
+</head>
+<body>
+    <h2>Formulario de Registro</h2>
+    <form action="/Guardarsensor" method="post" id="miFormulario">
+        <!-- Campo para el nombre -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        
+        <!-- Campo para la ubicación -->
+        <label for="ubicacion">Ubicación:</label>
+        <input type="text" id="ubicacion" name="ubicacion" required><br><br>
+        
+        <!-- Campo para el tipo -->
+        <label for="tipo">Tipo:</label>
+        <input type="text" id="tipo" name="tipo" required><br><br>
+        
+        <!-- Campo para la latitud -->
+        <label for="latitud">Latitud:</label>
+        <input type="text" id="latitud" name="latitud" required><br><br>
+        
+        <!-- Campo para la longitud -->
+        <label for="longitud">Longitud:</label>
+        <input type="text" id="longitud" name="longitud" required><br><br>
+        
+        <!-- Botón para guardar -->
+        <input type="submit" value="Guardar">
+    </form>
+
+    <h2>Listado de Datos Ingresados</h2>
+    <ul id="listado">
+        <!-- Aquí se mostrarán los datos ingresados -->
+    </ul>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const formulario = document.getElementById("miFormulario");
+            const listado = document.getElementById("listado");
+
+            formulario.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const nombre = document.getElementById("nombre").value;
+                const ubicacion = document.getElementById("ubicacion").value;
+                const tipo = document.getElementById("tipo").value;
+                const latitud = document.getElementById("latitud").value;
+                const longitud = document.getElementById("longitud").value;
+
+                // Crear un elemento de lista con los datos ingresados
+                const listItem = document.createElement("li");
+                listItem.textContent = `Nombre: ${nombre}, Ubicación: ${ubicacion}, Tipo: ${tipo}, Latitud: ${latitud}, Longitud: ${longitud}`;
+
+                // Agregar el elemento a la lista
+                listaDatos.appendChild(listItem);
+
+                // Limpiar el formulario
+                formulario.reset();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -17,4 +17,5 @@ router.post("/Guardarsensor", guardarsensor);
 router.get("/Registrarsensor", isAuthenticated,registrarsensor);
 router.get("/Mostrarsensores", isAuthenticated, listarsensores);
 
+
 module.exports = router;
